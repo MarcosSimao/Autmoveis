@@ -1,0 +1,1 @@
+insert into carro (nome,descricao,url_foto,url_video,latitude,longitude,tipo) values(?,?,?,?,?,?,?)

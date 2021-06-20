@@ -1,0 +1,1 @@
+delete from carro where id=?
