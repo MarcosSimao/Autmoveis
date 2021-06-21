@@ -39,7 +39,7 @@ public class CarroDao implements CarroRepository {
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 		return null;
 	}
@@ -61,7 +61,7 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 
 	}
@@ -83,7 +83,7 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 	}
 
@@ -103,7 +103,7 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 	}
 
@@ -127,7 +127,7 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 	}
 
@@ -152,7 +152,7 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 	}
 
@@ -167,19 +167,19 @@ public class CarroDao implements CarroRepository {
 			// TODO Auto-generated catch block
 			throw new DbException(e.getMessage());
 		} finally {
-			this.close();
+			this.close(this.conn,this.stmt);
 		}
 
 	}
 
 	// metodo para organizar codigo de fechamento
-	private void close() {
+	private void close(Connection c,PreparedStatement s) {
 
-		if (this.stmt != null) {
-			Db.closePreparedStatement(stmt);
+		if (s != null) {
+			Db.closePreparedStatement(s);
 		}
-		if (this.conn != null) {
-			Db.closeConection(conn);
+		if (c != null) {
+			Db.closeConection(c);
 		}
 	}
 }

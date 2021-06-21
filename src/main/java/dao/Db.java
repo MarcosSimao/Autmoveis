@@ -16,7 +16,9 @@ public class Db {
 
 	// aqui recebe as informações do properties e conecta ao driver do banco
 	public static Connection conexao() {
+		
 		if (conn == null) {
+		
 			try {
 				Properties props = arquivoConexao();
 				String url = props.getProperty("url");
@@ -27,14 +29,17 @@ public class Db {
 				throw new DbException(e.getMessage());
 			}
 		}
+		
 		return conn;
 	}
 
 	// fechar a conexão
 	public static void closeConection(Connection c) {
-
+       
 		try {
-			c.close();
+			  
+			 c.close();
+			 conn=null;
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		}
