@@ -20,7 +20,7 @@ public class CarroService implements Serializable{
     //buscar carro por id
 	public Carro getCarro(Long id) {
 		try {
-			Carro c = repository.carroById(id);
+			Carro c = repository.findById(id);
 			if (c == null) {
 				throw new DbException("objeto não encontrado");
 			}
@@ -64,7 +64,7 @@ public class CarroService implements Serializable{
 	public List<Carro> getCarros() {
 		
 		try {
-			List<Carro> c = repository.getCarros();
+			List<Carro> c = repository.findAll();
 
 			if (c.isEmpty()) {
 				throw new DbException("não existe conteudo na base de dados");

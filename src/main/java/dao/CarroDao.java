@@ -25,7 +25,8 @@ public class CarroDao implements CarroRepository {
 	
 
 //pesquisa carro por id
-	public Carro carroById(Long id) {
+	@Override
+	public Carro findById(Long id)  {
 		try {
 			this.stmt = this.conn.prepareStatement(FileReaderSql.read("getCarroById"));
 			this.stmt.setLong(1, id);
@@ -87,8 +88,8 @@ public class CarroDao implements CarroRepository {
 		}
 	}
 
-	// lista todos os carros cadastrados
-	public List<Carro> getCarros() {
+	@Override
+	public List<Carro> findAll(){
 		List<Carro> carros = new ArrayList<>();
 		try {
 			this.stmt = this.conn.prepareStatement(FileReaderSql.read("getCarros"));
@@ -182,4 +183,14 @@ public class CarroDao implements CarroRepository {
 			Db.closeConection(c);
 		}
 	}
+
+
+
+
+	
+
+
+
+
+	
 }

@@ -13,7 +13,7 @@ public class teste {
 		Carro c = new Carro();
         c.setId(34L);
 		c.setNome("Laiane andrade");
-		c.setDesc("Descrição Tucker 1948");
+		c.setDesc("Descri??o Tucker 1948");
 		c.setUrlFoto("http://www.livroandroid.com.br/livro/carros/classicos/Tucker.png");
 		c.setUrlVideo("http://www.livroandroid.com.br/livro/carros/classicos/tucker.mp4");
 		c.setLatitude("-23.564224");
